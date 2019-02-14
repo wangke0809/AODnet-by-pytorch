@@ -37,8 +37,8 @@ def array2PIL(arr, size):
     return Image.frombuffer(mode, size, arr.tostring(), 'raw', mode, 0, 1)
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--nyu', type=str, required=True, help='path to nyu_depth_v2_labeled.mat')
-parser.add_argument('--dataset', type=str, require=True, help='path to  synthesized hazy images dataset store')
+parser.add_argument('--nyu', type=str, help='path to nyu_depth_v2_labeled.mat')
+parser.add_argument('--dataset', type=str, help='path to  synthesized hazy images dataset store')
 args = parser.parse_args()
 print(args)
 
@@ -63,6 +63,7 @@ img_size = 224
 total_num = 0
 plt.ion()
 for index in range(1445):
+    print(index)
     index = index
     gt_image = (image[index, :, :, :]).astype(float)
     gt_image = np.swapaxes(gt_image, 0, 2)

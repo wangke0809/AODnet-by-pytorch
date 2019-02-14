@@ -119,7 +119,7 @@ def train(epoch):
 
         loss = criterion(net(varIn), varTar)
         # print(loss)
-        epoch_loss += loss.data[0]
+        epoch_loss += loss.data.item()
         loss.backward()
         optimizer.step()
         if iteration%args.printEvery == 0:
